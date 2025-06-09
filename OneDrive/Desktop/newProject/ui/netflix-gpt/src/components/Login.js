@@ -27,7 +27,8 @@ const Login = () => {
             placeholder="Full Name"
             className="p-4 my-4 w-full bg-gray-700 rounded-lg"
           />
-        )}    
+        )} 
+           
         <input
           type="text"
           placeholder="Email Address"
