@@ -1,5 +1,6 @@
 # NetFlix GPT
 
+## Development Process
 -Create React App
 -Configured Tailwind CSS
 -Header
@@ -35,11 +36,12 @@
 
 # Features
 
+### Authentication
 -Sign In/Sign Up Form
 -redirect to Browse Page
 -Login/SignUp Page
 
--Browse(after authentication)
+### Browse(after authentication)
 -Header
 -Main Movie
 -Trailer in Background
@@ -50,5 +52,7 @@
 -Search Bar
 -Movie Suggestions
 
+
+## Development Shortcuts
 - rafce
   -React Arrow Function Component Export
