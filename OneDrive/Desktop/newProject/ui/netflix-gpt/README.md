@@ -30,7 +30,8 @@
 -Fetch Data for Trailer Video
 -Update Store with Trailer Video Data
 -Embbeded the Youtube Video and make it autoplay and mure
--Tailwind Classes to make Main Container looj awesome
+-Tailwind Classes to make Main Container look awesome
+-Build Secondary Component
 
 # Features
 
