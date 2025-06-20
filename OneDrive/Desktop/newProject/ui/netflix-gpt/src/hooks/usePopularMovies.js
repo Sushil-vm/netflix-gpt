@@ -6,6 +6,7 @@ import {  addPopularMovies } from "../utils/movieSlice";
 const usePopularMovies = () => {
   // Fetch dat from TMDB API and update the store
   const dispatch = useDispatch();
+   
   const getPopularMovies = async () => {
     const data = await fetch(
       "https://api.themoviedb.org/3/movie/popular?page=1",

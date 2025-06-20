@@ -13,7 +13,7 @@
 -Firebase Setup
 -Deploying our app to Production
 -Create SignUp User Account
--ImplementSign In user Api
+-Implemented Sign In user Api
 -Created Redux Store with userSlice
 -Implemented Sign Out
 -Update
@@ -30,7 +30,19 @@
 -Fetch Data for Trailer Video
 -Update Store with Trailer Video Data
 -Embbeded the Youtube Video and make it autoplay and mure
--Tailwind Classes to make Main Container looj awesome
+-Tailwind Classes to make Main Container look awesome
+-Build Secondary Component
+-Build Movie List 
+-Build Movie Card
+-TMDB Image CDN URL
+-Made the Browser page amazing with Tailwind CSS
+-usePopularMovies Custom Hook
+-GPT Search Feature 
+-GPT Search Page
+-Gpt Search Bar
+-(BONUS)Multi-Language Fetaure in our App
+
+
 
 # Features
 
