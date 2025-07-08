@@ -1,4 +1,26 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import {
+  fetchMovieCredits,
+  fetchMovieDetails,
+  fetchMovieVideos,
+  fetchSimilarMovies,
+} from "./fetchMovieDetails";
+
+export const getMovieDetails = createAsyncThunk(
+  "movies/getMovieDetails",
+  async (movieId, { rejectWithValue }) => {
+    try {
+      const details = await fetchMovieDetails(movieId);
+      const credits = await fetchMovieCredits(movieId);
+      const similar = await fetchSimilarMovies(movieId);
+      const videos = await fetchMovieVideos(movieId);
+
+      return { details, credits, similar };
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
 
 const moviesSlice = createSlice({
   name: "movies",
@@ -14,8 +36,12 @@ const moviesSlice = createSlice({
     onTheAirShows: null,
     popularTvShows: null,
     topRatedTvShows: null,
+    movieDetails: null,
+    movieCredits: null,
+    similarMovies: null,
+    loadingStatus: "idle",
+    error: null,
   },
-
   reducers: {
     addNowPlayingMovies: (state, action) => {
       state.nowPlayingMovies = action.payload;
@@ -51,6 +77,22 @@ const moviesSlice = createSlice({
       state.topRatedTvShows = action.payload;
     },
   },
+  extraReducers: (builder) => {
+    builder
+      .addCase(getMovieDetails.pending, (state) => {
+        state.loadingStatus = "loading";
+      })
+      .addCase(getMovieDetails.fulfilled, (state, action) => {
+        state.loadingStatus = "succeeded";
+        state.movieDetails = action.payload.details;
+        state.movieCredits = action.payload.credits;
+        state.similarMovies = action.payload.similar;
+      })
+      .addCase(getMovieDetails.rejected, (state, action) => {
+        state.loadingStatus = "failed";
+        state.error = action.payload;
+      });
+  },
 });
 
 export const {
@@ -65,5 +107,8 @@ export const {
   addOnTheAirShows,
   addPopularTvShows,
   addTopRatedTvShows,
+  addMovieDetails,
+  addMovieCredits,
+  addSimilarMovies,
 } = moviesSlice.actions;
 export default moviesSlice.reducer;

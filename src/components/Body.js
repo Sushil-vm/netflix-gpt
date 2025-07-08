@@ -7,6 +7,7 @@ import useAuthInit from "../utils/useAuthInit";
 import ProtectedRoute from "../utils/ProtectedRoute";
 import GptSearch from "./gpt/GptSearch";
 import Loading from "../utils/Loading";
+import MovieDetails from "./movies/MovieDetails";
 
 const TvShows = lazy(() => import("./navbar/TvShows"));
 const Movies = lazy(() => import("./navbar/Movies"));
@@ -65,6 +66,14 @@ const Body = () => {
       element: (
         <ProtectedRoute>
           <GptSearch />
+        </ProtectedRoute>
+      ),
+    },
+    {
+      path: "/movie/:id",
+      element: (
+        <ProtectedRoute>
+          <MovieDetails />
         </ProtectedRoute>
       ),
     },
